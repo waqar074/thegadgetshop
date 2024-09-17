@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gadget Shop - Rentals</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Cart Icon */
+        .cart {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin: 20px auto;
+            max-width: 400px;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            border: none;
+            background-color: #ff5722;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Main Section */
+        .rental-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .rental-section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        /* Rental Items Grid */
+        .items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item h3 {
+            margin: 15px 0;
+        }
+
+        .item p {
+            margin: 5px 0;
+        }
+
+        .rent-button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .rent-button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #Footer {
+            margin-top: 20px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .hover\:underline:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .items-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .item {
+                width: 80%;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .flex ul {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <script>
+        // Function to show an alert when the "Rent Now" button is clicked
+        function rentItem(itemName, price, period) {
+            alert('You have chosen to rent ' + itemName + ' for ' + price + ' for ' + period + '.');
+        }
+
+        // Function to filter items
+        function filterItems() {
+            const filterValue = document.getElementById('search-input').value.toLowerCase();
+            const items = document.getElementsByClassName('item');
+
+            for (let i = 0; i < items.length; i++) {
+                const itemName = items[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (itemName.includes(filterValue)) {
+                    items[i].style.display = 'block';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>The Gadget Shop - Rentals</h1>
+          <a href="pro.html">Profile</a>
+          <a href="login.html">Logout</a>
+        <div class="cart">
+            <span>🛒 Cart</span>
+        </div>
+      
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for gadgets...">
+        <button onclick="filterItems()">Search</button>
+    </div>
+
+    <!-- Rental Items Section -->
+    <section class="rental-section">
+        <h2>Available for Rent</h2>
+        <div class="items-grid">
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera1.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone1.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home1.jpg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone1.png" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera1.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone1.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home1.jpg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone1.png" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera1.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone3.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home1.jpg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone1.png" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera1.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone3.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home1.jpg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone2.jpeg" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera1.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone2.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home1.jpg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone1.png" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Camera Item -->
+            <div class="item">
+                <img src="photo/camera2.jpeg" alt="Camera">
+                <h3>DSLR Camera</h3>
+                <p>Price: ₹1500/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('DSLR Camera', '₹1500/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Phone Item -->
+            <div class="item">
+                <img src="photo/phone2.webp" alt="Phone">
+                <h3>Smartphone</h3>
+                <p>Price: ₹1100/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Smartphone', '₹1100/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Home Appliance Item -->
+            <div class="item">
+                <img src="photo/home2.jpeg" alt="Home Appliance">
+                <h3>Microwave Oven</h3>
+                <p>Price: ₹750/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Microwave Oven', '₹750/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Drone Item -->
+            <div class="item">
+                <img src="photo/drone2.jpeg" alt="Drone">
+                <h3>Drone</h3>
+                <p>Price: ₹1850/day</p>
+                <p>Rental Period: 1-30 days</p>
+                <button class="rent-button" onclick="rentItem('Drone', '₹1850/day', '1-30 days')">Rent Now</button>
+            </div>
+            <!-- Add more items as needed -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 The Gadget Shop. All rights reserved.</p>
+        <!-- New Footer Content -->
+        <div id="Footer">
+            <div class="flex">
+                <ul>
+                    <li class="font-bold">Rent</li>
+                    <li class="hover:underline">How it Works</li>
+                    <li class="hover:underline">Gadget Categories</li>
+                    <li class="hover:underline">Pricing Plans</li>
+                    <li class="hover:underline">Customer Support</li>
+                </ul>
+
+                <ul>
+                    <li class="font-bold">Lease</li>
+                    <li class="hover:underline">Lease a Gadget</li>
+                    <li class="hover:underline">Lease Terms</li>
+                    <li class="hover:underline">Upgrade Options</li>
+                </ul>
+
+                <ul>
+                    <li class="font-bold">About Us</li>
+                    <li class="hover:underline">Our Story</li>
+                    <li class="hover:underline">Press & Media</li>
+                    <li class="hover:underline">Careers</li>
+                    <li class="hover:underline">Sustainability</li>
+                </ul>
+
+                <ul>
+                    <li class="font-bold">Policies</li>
+                    <li class="hover:underline">Privacy Policy</li>
+                    <li class="hover:underline">Terms of Service</li>
+                    <li class="hover:underline">FAQs</li>
+                </ul>
+
+                <ul>
+                    <li class="font-bold">Contact Us</li>
+                    <li class="hover:underline">Customer Service</li>
+                    <li class="hover:underline">Live Chat</li>
+                    <li class="hover:underline">Email Support</li>
+                    <li class="hover:underline">Find a Store</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

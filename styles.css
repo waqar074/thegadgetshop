@@ -1,0 +1,117 @@
+/* Common styles for both login and signup pages */
+
+/* Add a background color or image */
+body {
+    font-family: Arial, sans-serif;
+    background: url('photo/theme.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Ensure the box stands out against the background */
+.login-box, .signup-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-left, .signup-left, .login-right, .signup-right {
+    padding: 40px;
+    flex: 1;
+}
+
+.login-left, .signup-left {
+    background-color: #f0f4ff;
+    text-align: center;
+}
+
+/* Modify the image inside the login-left and signup-left sections */
+.login-left img, .signup-left img {
+    max-width: 80%; /* Increase the width to 80% of the container */
+    height: auto;   /* Maintain the aspect ratio */
+    margin: 20px 0; /* Add some vertical margin */
+}
+
+.login-right, .signup-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right h3, .signup-right h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-right form, .signup-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #788df5;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.signup-link, .login-link {
+    text-align: center;
+    color: #4CAF50;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .login-box, .signup-box {
+        flex-direction: column;
+        max-width: 100%;
+    }
+}
+/* Header background */
+.header-section {
+    background-color: #333; /* Dark background for the header */
+    color: white;
+    padding: 20px 0;
+}
+
+/* Hero Section background */
+.hero-section {
+    background-image: url('photo/bg.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile - The Gadget Shop</title>
+<style>
+    body { 
+        font-family: Arial, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        background: url('background-image.jpg') no-repeat center center fixed; 
+        background-size: cover;
+        color: #ffffff; 
+    }
+    header { 
+        background: #ff8c00; /* Orange background */
+        padding: 10px 20px; 
+        text-align: center; 
+        color: #000000; /* Black text */
+    }
+    section { 
+        background: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        margin: 20px; 
+        padding: 20px; 
+        border-radius: 8px; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    }
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+    th, td { 
+        padding: 8px; 
+        text-align: left; 
+        border-bottom: 1px solid #ddd; 
+        color: #ffffff; /* White text */
+    }
+    .button { 
+        padding: 10px 20px; 
+        background: #ff8c00; /* Orange background */
+        color: #000000; /* Black text */
+        text-decoration: none; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+    }
+    a.signup-link { 
+        display: block;
+        text-align: center; 
+        margin: 10px auto; 
+        padding: 10px 20px; 
+        background-color: #ff8c00; /* Orange background */
+        color: #000000; /* Black text */
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Welcome to Your Profile, User!</h1>
+</header>
+<section>
+    <h2>Profile Information</h2>
+    <p>Name: <strong>Waqar</strong></p>
+    <p>Email: <strong>waqar@gmail.com</strong></p>
+    <p>Member since: <strong>January 2004</strong></p>
+    <button class="button" onclick="editProfile()">Edit Profile</button>
+</section>
+<section>
+    <h2>Rental History</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Gadget</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>2022-07-15</td>
+            <td>Canon DSLR Camera</td>
+            <td>Returned</td>
+        </tr>
+        <tr>
+            <td>2022-09-01</td>
+            <td>Apple MacBook Pro</td>
+            <td>Rented</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2>Settings</h2>
+    <button class="button" onclick="changePassword()">Change Password</button>
+</section>
+<script>
+    function editProfile() {
+        alert("Edit profile functionality goes here.");
+    }
+    function changePassword() {
+        alert("Password change functionality goes here.");
+    }
+</script>
+<a href="home.html" class="signup-link">Home</a>
+</body>
+</html>
