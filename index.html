@@ -137,9 +137,30 @@
         footer {
             background-color: #333;
             color: white;
-            text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            text-align: center;
+        }
+
+        #Footer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-top: 20px;
+        }
+
+        #Footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 20px; /* Space between columns */
+        }
+
+        #Footer .font-bold {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #Footer .hover\:underline:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Styles */
@@ -169,6 +190,15 @@
 
             .hero p {
                 font-size: 1.2rem;
+            }
+
+            #Footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #Footer ul {
+                margin-bottom: 20px;
             }
         }
 
@@ -203,10 +233,8 @@
         </div>
         <ul>
             <li><a href=".html">Home</a></li>
-            <li><a href="rea.html">Rentals</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="pro.html">Profile</a></li>
-            <li><a href="index.html">Login</a></li>
+            <li><a href="Login.html">Login</a></li>
         </ul>
     </nav>
 
@@ -244,8 +272,47 @@
 
     <!-- Footer -->
     <footer>
-        <div id="footer-placeholder"></div>
+        <p >&copy; 2024 The Gadget Shop. All rights reserved. </p>
+        <!-- New Footer Content -->
+        <div id="Footer">
+            <ul>
+                <li class="font-bold">Rent</li>
+                <li class="hover:underline">How it Works</li>
+                <li class="hover:underline">Gadget Categories</li>
+                <li class="hover:underline">Pricing Plans</li>
+                <li class="hover:underline">Customer Support</li>
+            </ul>
+
+            <ul>
+                <li class="font-bold">Lease</li>
+                <li class="hover:underline">Lease a Gadget</li>
+                <li class="hover:underline">Lease Terms</li>
+                <li class="hover:underline">Upgrade Options</li>
+            </ul>
+
+            <ul>
+                <li class="font-bold">About Us</li>
+                <li class="hover:underline">Our Story</li>
+                <li class="hover:underline">Press & Media</li>
+                <li class="hover:underline">Careers</li>
+                <li class="hover:underline">Sustainability</li>
+            </ul>
+
+            <ul>
+                <li class="font-bold">Policies</li>
+                <li class="hover:underline">Privacy Policy</li>
+                <li class="hover:underline">Terms of Service</li>
+                <li class="hover:underline">FAQs</li>
+            </ul>
+
+            <ul>
+                <li class="font-bold">Contact Us</li>
+                <li class="hover:underline">Customer Service</li>
+                <li class="hover:underline">Live Chat</li>
+                <li class="hover:underline">Email Support</li>
+                <li class="hover:underline">Find a Store</li>
+            </ul>
+        </div>
     </footer>
-   
 </body>
 </html>
